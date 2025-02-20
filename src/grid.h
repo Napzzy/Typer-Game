@@ -15,24 +15,34 @@ class Grid
 {
 public:
     Grid();
-    
+    Grid(int X, int Y);
+
+    // Big three
+    ~Grid();
+    Grid(const Grid &copyThis);
+    Grid &operator=(const Grid &RHS); 
+
     void GridCreation(int Horizontal_X, int Vertical_Y);
-    
+
+    void Play();
+
+    void PrintGrid(node<T> *&Head);
+
     vector<string> RandomWords();
 
-    int RandomNumber(int Size); 
+    string RandomNumber(int Size);
 
     friend ostream &operator<<(ostream &outs, const node<T> &PrintThis)
     {
-        outs << "[ " << PrintThis._item << "] ->";
+        outs << "[ " << PrintThis._item << "] ";
         return outs;
     }
-    
+
 private:
-    node<T> * Center; 
-    node<T> * List; 
+    node<T> *Center;
+    node<T> *_Head;
+    node<T> *_Tail;
     vector<string> _RandomWords;
 };
 
 #endif
-
