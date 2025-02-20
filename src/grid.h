@@ -7,6 +7,8 @@
 #include <vector>
 #include <iostream>
 #include <fstream>
+#include <ctime>
+#include <cstdlib>
 
 template <typename T>
 class Grid
@@ -25,8 +27,10 @@ public:
         outs << "[ " << PrintThis._item << "] ->";
         return outs;
     }
+    
 private:
-    vector<vector<node>> VectorNodes; 
+    node<T> * Center; 
+    node<T> * List; 
     vector<string> _RandomWords;
 };
 

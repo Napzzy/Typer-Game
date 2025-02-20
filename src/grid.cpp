@@ -10,16 +10,28 @@ Grid<T>::Grid() : _grid_nodes(nullptr)
 template <typename T>
 void Grid<T>::GridCreation(int Horizontal_X, int Vertical_Y)
 {
-    for (int y = Vertical_Y; y < 0 ; y--)
+    node<T> * prev_node; 
+    node<T> * above; 
+    
+    for (int y = 0; y < Vertical_Y ; y++)
     {
-        for (int x = Horizontal_X; x < 0; x--)
+        for (int x = 0; x < Horizontal_X; x++)
         {
             Node<T> *Item = new node<T>(_RandomWord[RandomNumber(_RandomWords.size())]);
-            VectorNodes[y][x].push_back(Item);
+           
         }
     }
     
 }
+
+template <typename T> 
+int Grid<T>::RandomNumber(int Size)
+{
+    srand(time(0));
+    int random_number = rand() % size;
+    return random_number; 
+}
+
 
 template <typename T>
 vector<string> Grid<T>::RandomWords()
