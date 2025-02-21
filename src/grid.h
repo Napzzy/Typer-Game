@@ -1,5 +1,5 @@
 #ifndef GRID_H
-#define GRID_
+#define GRID_H
 
 #include "../node/node.h"
 #include "WordGame.cpp"
@@ -32,6 +32,13 @@ public:
 
     string RandomNumber(int Size);
 
+    node<T> ShiftLeft();
+    node<T> ShiftRight();
+    node<T> ShiftUp();
+    node<T> ShiftDown();
+
+    node<T> SearchArea(node<T> CenterPtr, string ITEM_TO_FIND);
+
     friend ostream &operator<<(ostream &outs, const node<T> &PrintThis)
     {
         outs << "[ " << PrintThis._item << "] ";
@@ -43,6 +50,8 @@ private:
     node<T> *_Head;
     node<T> *_Tail;
     vector<string> _RandomWords;
+
+    string InPutWord; 
 };
 
 #endif

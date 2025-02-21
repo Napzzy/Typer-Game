@@ -29,6 +29,21 @@ BIG THREE
 template <typename T>
 Grid<T>::~Grid()
 {
+    node<T> *Walker = _head;
+
+    while(Walker->_down != nullptr)
+    {
+        node<T> *StartPos = Walker; 
+        while(StartPos->_right)
+        {
+            node<T> *TempNode = StartPos->_right
+            delete StartPos;
+
+            StartPos = TempNode; 
+        }
+
+        Walker = Walker->_down; 
+    }
 
 }
 
@@ -43,13 +58,12 @@ template <typename T>
 Grid<T> &Grid<T>::operator=(const Grid &RHS)
 {
 
-
 }
 
 template <typename T>
 void Grid<T>::GridCreation(int Horizontal_X = 3, int Vertical_Y = 3)
 {
-    node<T> * PrevRowHead= nullptr;
+    node<T> * PrevRowHead = nullptr;
     
     for (int y = 0; y < Vertical_Y; y++)
     {
@@ -153,4 +167,28 @@ void Grid<T>::PrintGrid(node<T> *&Head)
         Walker = Walker->_down; 
     }
 }
+
+template <typename T> 
+node<T> Grid<T>::SearchArea(node<T> CenterPtr, string ITEM_TO_FIND)
+{
+    if(CenterPtr._up->_item == ITEM_TO_FIND)
+        return Center_ptr._up; 
+    else if(CenterPtr._down->_item == ITEM_TO_FIND)
+        return Center_ptr._down;
+    else if(CenterPtr._left->_item == ITEM_TO_FIND)
+        return Center_ptr._left;
+    else if(CenterPtr._right->_item == ITEM_TO_FIND)
+        return Center_ptr._right; 
+
+    return nullptr; 
+}
+
+template <typename T>
+void Grid<T>::Play()
+{
+    
+    
+}
+
+
 
